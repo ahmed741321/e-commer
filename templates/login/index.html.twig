@@ -1,0 +1,97 @@
+{% extends 'head.html.twig' %}
+
+
+{% block body %}
+<!-- Ec breadcrumb start -->
+<div class="sticky-header-next-sec ec-breadcrumb section-space-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row ec_breadcrumb_inner">
+                    <div class="col-md-6 col-sm-12">
+                        <h2 class="ec-breadcrumb-title">login</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <!-- ec-breadcrumb-list start -->
+                        <ul class="ec-breadcrumb-list">
+                            <li class="ec-breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="ec-breadcrumb-item active">login</li>
+                        </ul>
+                        <!-- ec-breadcrumb-list end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Ec breadcrumb end -->
+
+
+
+<section class="ec-page-content section-space-p">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="section-title">
+                    <h2 class="ec-bg-title">Log In</h2>
+                    <h2 class="ec-title">Log In</h2>
+                    <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+                </div>
+            </div>
+
+            <div class="ec-login-wrapper">
+                <div class="ec-login-container">
+                    <div class="ec-login-form">
+
+                        {% for message in app.flashes('error') %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+
+                        {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+
+                        <form  method="post">
+                            {{ form_start(form) }}
+                            <span class="ec-login-wrap">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email) }}
+                            </span>
+                            <span class="ec-login-wrap">
+                                {{ form_label(form.password) }}
+                                {{ form_widget(form.password) }}
+                            </span>
+                            <span class="ec-register-wrap fr_register">
+                                <label><a href="#">Forgot Password?</a></label>
+                                <label><a href="/register">Create an account</a></label>
+                            </span>
+                            <span class="ec-login-wrap ec-login-btn">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                            </span>
+                            {{ form_end(form) }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .fr_register * {
+        font-size: smaller;
+    }
+
+    .fr_register {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+</style>
+{% endblock %}

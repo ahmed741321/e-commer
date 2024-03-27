@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+    <title>E-commer</title>
+    <meta name="keywords"
+        content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+    <meta name="description" content="Best ecommerce html template for single and multi vendor store." />
+    <meta name="author" content="hwai-technology" />
+
+
+    <!-- site Favicon -->
+    <link rel="icon" href="/assets/images/favicon/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/images/favicon/favicon.png" />
+    <meta name="msapplication-TileImage" content="/assets/images/favicon/favicon.png" />
+
+
+    <!-- css Icon Font -->
+    <link rel="stylesheet" href="/assets/css/vendor/ecicons.min.css" />
+
+
+    <!-- css All Plugins Files -->
+    <link rel="stylesheet" href="/assets/css/plugins/animate.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/countdownTimer.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/slick.min.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.css" />
+
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" id="dark-css" href='assets/css/responsive.css' />
+
+    <!-- Background css -->
+    <link rel="stylesheet" id="bg-switcher-css" href="/assets/css/backgrounds/bg-4.css" />
+
+
+    <script src="/assets/js/plugins/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/sweetalert2.min.css" />
+</head>
+
+<body>
+
+    {% block header %}
+    {% include 'header.html.twig' %}
+    {% endblock %}
+
+    {% block cart %}
+    {% include 'cart.html.twig' %}
+    {% endblock %}
+    {% block feature_tools %}
+    {% include 'feature_tools.html.twig' %}
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+
+    {% block whatsapp %}
+    {% include 'whatsapp.html.twig' %}
+    {% endblock %}
+
+    {% block footer %}
+    {% include 'footer.html.twig' %}
+    {% endblock %}
+
+    {% block footer_navigation %}
+    {% include 'footer_navigation.html.twig' %}
+    {% endblock %}
+
+
+    {% block footer_library %}
+    {% include 'footer_library.html.twig' %}
+    {% endblock %}
+</body>
+
+</html>
