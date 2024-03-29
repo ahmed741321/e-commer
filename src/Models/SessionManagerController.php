@@ -5,31 +5,29 @@ namespace App\Models;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class SessionManagerController extends AbstractController
+class SessionManagerController
 {
-    private $sessionData;
-
-    public function __construct()
-    {
-        $this->sessionData = [];
-    }
     public function set(string $key, $value): void
     {
-        $this->sessionData[$key] = $value;
+        // تعيين قيمة لمفتاح في الجلسة
+        $_SESSION[$key] = $value;
     }
 
     public function get(string $key, $default = null)
     {
-        return $this->sessionData[$key] ?? $default;
+        // استرجاع قيمة مفتاح من الجلسة، إذا لم يكن موجوداً يتم استرجاع القيمة الافتراضية
+        return $_SESSION[$key] ?? $default;
     }
 
     public function has(string $key): bool
     {
-        return isset($this->sessionData[$key]);
+        // التحقق مما إذا كان مفتاح محدد موجود في الجلسة
+        return isset($_SESSION[$key]);
     }
 
     public function remove(string $key): void
     {
-        unset($this->sessionData[$key]);
+        // حذف مفتاح محدد من الجلسة
+        unset($_SESSION[$key]);
     }
 }

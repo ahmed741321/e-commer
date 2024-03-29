@@ -14,14 +14,14 @@ class LoginFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email Address*',
+                'label' => 'Email Address *',
                 'attr' => [
                     'class' => 'ec-login-wrap',
                     'placeholder' => 'Enter your email add...',
                 ],
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Password*',
+                'label' => 'Password *',
                 'attr' => [
                     'class' => 'ec-login-wrap',
                     'placeholder' => 'Enter your password',

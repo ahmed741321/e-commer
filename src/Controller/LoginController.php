@@ -25,29 +25,12 @@ class LoginController extends AbstractController
     {
         $form = $this->createForm(LoginFormType::class);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $formData = $form->getData();
-
-            $email = $formData['email'];
-            $password = $formData['password'];
-
-            $userRepository = $manager->getRepository(Users::class);
-            $user = $userRepository->findOneBy(['email' => $email, 'password' => $password]);
-
-            if (!$user) {
-                $this->addFlash('error', 'Invalid username or password');
-            } else {
-                $this->addFlash('success', 'Verified successfully');
-                $this->sessionManager->set('user', 'value_from_first_controller');
-            }
-        }
+        $user_name = $this->sessionManager->get('user_name');
 
         return $this->render('login/index.html.twig', [
             'controller_name' => 'LoginController',
             'form' => $form->createView(),
+            'user_name' => $user_name,
 
         ]);
     }

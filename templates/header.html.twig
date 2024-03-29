@@ -62,12 +62,23 @@
                                 <i class="fi-rr-user"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
+                                {% if user_name %}
+                                <li>
+                                    <a class="dropdown-item" href="/register">{{ user_name }}</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/login">Logout</a>
+                                </li>
+                                {% else %}
                                 <li>
                                     <a class="dropdown-item" href="/register">Register</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="/login">Login</a>
                                 </li>
+                                {% endif %}
+
+
                             </ul>
                         </div>
                         <!-- Header User End -->
@@ -138,12 +149,21 @@
                                     <i class="fi-rr-user"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
+                                    {% if user_name %}
                                     <li>
-                                        <a class="dropdown-item" href="/register">Register</a>
+                                        <a class="dropdown-item" href="/register">{{ user_name }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/login">Logout</a>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a class="dropdown-item" href="/register">{{ user_name }}</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="/login">Login</a>
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                             <!-- Header User End -->

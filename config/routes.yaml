@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+    
+# config/routes.yaml
+
+
+private_asset:
+    path: /private/{filename}
+    controller: App\Controller\PrivateAssetController::index
+

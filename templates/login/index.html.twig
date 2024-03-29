@@ -45,19 +45,8 @@
                 <div class="ec-login-container">
                     <div class="ec-login-form">
 
-                        {% for message in app.flashes('error') %}
-                        <div class="alert alert-danger">
-                            {{ message }}
-                        </div>
-                        {% endfor %}
 
-                        {% for message in app.flashes('success') %}
-                        <div class="alert alert-success">
-                            {{ message }}
-                        </div>
-                        {% endfor %}
-
-                        <form  method="post">
+                        <form id="login-form" method="post">
                             {{ form_start(form) }}
                             <span class="ec-login-wrap">
                                 {{ form_label(form.email) }}
@@ -72,7 +61,7 @@
                                 <label><a href="/register">Create an account</a></label>
                             </span>
                             <span class="ec-login-wrap ec-login-btn">
-                                <button class="btn btn-primary" type="submit">Login</button>
+                                <button class="btn btn-primary" id="btn_login" type="submit">Login</button>
                             </span>
                             {{ form_end(form) }}
                         </form>
@@ -94,4 +83,8 @@
     }
 
 </style>
+<script src="{{ path('private_asset', {'filename': 'login.js'}) }}"></script>
+
+
+
 {% endblock %}
