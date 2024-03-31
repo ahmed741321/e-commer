@@ -5,9 +5,6 @@ $("#login-form").submit(function (event) {
     // جمع بيانات البريد الإلكتروني وكلمة المرور من النموذج
     const email = $("#login_form_email").val();
     const password = $("#login_form_password").val();
-    $("#btn_login").html(
-        '<i class="fa-solid fa-spinner fa-spin" style="color: #63E6BE;"></i>'
-    );
     $("#btn_login").prop("disabled", true);
 
     // إرسال طلب POST إلى API باستخدام AJAX
@@ -30,9 +27,7 @@ $("#login-form").submit(function (event) {
                 timer: 2000,
                 timerProgressBar: true,
             }).then((result) => {
-                $("#btn_login").prop("disabled", false);
-                $("#btn_login").html("Login");
-                $("#login-form")[0].reset();
+                window.location.reload();
             });
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -45,7 +40,6 @@ $("#login-form").submit(function (event) {
                 timerProgressBar: true,
             }).then((result) => {
                 $("#btn_login").prop("disabled", false);
-                $("#btn_login").html("Login");
                 $("#login-form")[0].reset();
             });
             //console.error(JSON.parse(xhr.responseText).message); // عرض رسالة خطأ تسجيل الدخول

@@ -9,5 +9,5 @@ controllers:
 
 private_asset:
     path: /private/{filename}
-    controller: App\Controller\PrivateAssetController::index
+    controller: App\Models\PrivateAssetController::index
 

@@ -25,15 +25,12 @@ function populateStates() {
     statesSelect.innerHTML = "<option selected disabled>Region/State</option>";
     citiesSelect.innerHTML = "<option selected disabled>Select city</option>";
 
-    fetch(
-        `https://api.countrystatecity.in/v1/countries/${countryId}/states`,
-        {
-            headers: {
-                "X-CSCAPI-KEY":
-                    "UU9nakNWczhNOGU4dUpsOHBXYXlHSFFwdmY1S2hhMWZ1c3ZhZmRiVg==",
-            },
-        }
-    )
+    fetch(`https://api.countrystatecity.in/v1/countries/${countryId}/states`, {
+        headers: {
+            "X-CSCAPI-KEY":
+                "UU9nakNWczhNOGU4dUpsOHBXYXlHSFFwdmY1S2hhMWZ1c3ZhZmRiVg==",
+        },
+    })
         .then((response) => response.json())
         .then((states) => {
             if (states.length === 0) {
@@ -196,3 +193,56 @@ function geasdt() {
 }
 
 */
+
+
+$(document).ready(function () {
+    $("#regiser-form").submit(function (event) {
+        // منع تقديم النموذج الافتراضي
+        event.preventDefault();
+
+        $("#btn_regiser").prop("disabled", true);
+        // جمع بيانات النموذج وتحويلها إلى كائن JSON
+        var formData = {};
+        $(this)
+            .serializeArray()
+            .forEach(function (item) {
+                formData[item.name] = item.value;
+            });
+
+        // إرسال البيانات باستخدام AJAX POST
+        $.ajax({
+            type: "POST",
+            url: "/api/register",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (data) {
+                //console.log(data.message);
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    text: "You have logged in successfully. Please wait...",
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                }).then((result) => {
+                    window.location.reload();
+                });
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    text: JSON.parse(xhr.responseText).message,
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                }).then((result) => {
+                    $("#btn_regiser").prop("disabled", false);
+                    $("#login-form")[0].reset();
+                });
+                //console.error(JSON.parse(xhr.responseText).message); // عرض رسالة خطأ تسجيل الدخول
+            },
+        });
+    });
+});

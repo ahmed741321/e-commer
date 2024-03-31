@@ -6,8 +6,6 @@
 parameters:
 
 services:
-# config/services.yaml
-
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
@@ -21,6 +19,24 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    App\Models\Encrypt_Class:
+        arguments:
+            $secretKey: "hwaitechnology"
+            $iv: "1234567890123456"
+
+    App\Models\Jwt_Class:
+        arguments:
+            $secretKey: "hwai_technology"
+            $alg: "HS512"
+
+    # # # Define Session_Class service
+    # App\Models\CustomSessionManager:
+    #     arguments: ['@session']
+
+    # # Define Session_Class service
+    # session:
+    #     class: Symfony\Component\HttpFoundation\Session\Session
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

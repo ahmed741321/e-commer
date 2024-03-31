@@ -42,7 +42,7 @@
                     <div class="ec-register-form">
 
 
-                        <form method="post">
+                        <form id="regiser-form" method="post">
                             <span class="ec-register-wrap ec-register-half">
                                 <label>First Name*</label>
                                 <input type="text" name="firstname" placeholder="Enter your first name" required="">
@@ -118,7 +118,7 @@
 
                             <span class="ec-register-wrap" style="display: flex;justify-content: space-evenly;">
 
-                                <button class="btn btn-primary" type="submit">Register</button>
+                                <button class="btn btn-primary" id="btn_regiser" type="submit">Register</button>
 
                             </span>
 
@@ -130,36 +130,6 @@
         </div>
     </div>
 </section>
-
-
-{% if check %}
-{% if check == false %}
-<script>
-    Swal.fire({
-        position: "center",
-        icon: "error",
-        text: "error",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true
-    }).then((result) => {});
-
-</script>
-{% elseif check == true %}
-<script>
-    Swal.fire({
-        position: "center",
-        icon: "success",
-        text: "ok",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true
-    }).then((result) => {});
-
-</script>
-{% endif %}
-{% endif %}
-
 
 
 <script src="{{ path('private_asset', {'filename': 'register.js'}) }}"></script>
